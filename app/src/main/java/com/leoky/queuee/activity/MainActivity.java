@@ -1,7 +1,9 @@
-package com.leoky.queuee;
+package com.leoky.queuee.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.leoky.queuee.R;
 
 public class MainActivity extends AppCompatActivity {
 
