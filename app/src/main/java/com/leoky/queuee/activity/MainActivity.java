@@ -9,10 +9,10 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.leoky.queuee.R;
-import com.leoky.queuee.fragment.Fragment_history;
-import com.leoky.queuee.fragment.Fragment_home;
-import com.leoky.queuee.fragment.Fragment_list;
-import com.leoky.queuee.fragment.Fragment_setting;
+import com.leoky.queuee.fragment.HistoryFrag;
+import com.leoky.queuee.fragment.HomeFrag;
+import com.leoky.queuee.fragment.ListFrag;
+import com.leoky.queuee.fragment.SettingFrag;
 import com.leoky.queuee.helper.BottomNavigationViewHelper;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.nav);
 
         if(savedInstanceState == null){
-            getSupportFragmentManager().beginTransaction().add(R.id.frame_layout, new Fragment_home(),Fragment_home.class.getSimpleName()).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.frame_layout, new HomeFrag(),HomeFrag.class.getSimpleName()).commit();
         }
 
 
@@ -38,16 +38,16 @@ public class MainActivity extends AppCompatActivity {
                 Fragment frag = null;
                 switch (item.getItemId()){
                     case R.id.nav_1:
-                        frag =Fragment_home.newInstance();
+                        frag = HomeFrag.newInstance();
                         break;
                     case R.id.nav_2:
-                        frag = Fragment_list.newInstance();
+                        frag = ListFrag.newInstance();
                         break;
                     case R.id.nav_3:
-                        frag = Fragment_history.newInstance();
+                        frag = HistoryFrag.newInstance();
                         break;
                     case R.id.nav_4:
-                        frag = Fragment_setting.newInstance();
+                        frag = SettingFrag.newInstance();
                         break;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame_layout,frag).commit();

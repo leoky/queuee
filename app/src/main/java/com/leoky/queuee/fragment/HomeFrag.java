@@ -12,18 +12,18 @@ import com.leoky.queuee.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Fragment_history extends Fragment {
+public class HomeFrag extends Fragment {
 
 
-    public Fragment_history() {
+    public HomeFrag() {
         // Required empty public constructor
     }
 
-    public static Fragment_history newInstance() {
+    public static HomeFrag newInstance() {
         
         Bundle args = new Bundle();
         
-        Fragment_history fragment = new Fragment_history();
+        HomeFrag fragment = new HomeFrag();
         fragment.setArguments(args);
         return fragment;
     }
@@ -32,7 +32,8 @@ public class Fragment_history extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_history, container, false);
+        return inflater.inflate(R.layout.fragment_home, container, false);
     }
+
 
 }
