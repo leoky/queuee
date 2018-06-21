@@ -37,6 +37,8 @@ public class ListFrag extends Fragment {
             new UserList("24","Adinda","demam",8),
             new UserList("25","David","pilek",8),
             new UserList("26","Thafa","sakit perut",8),
+            new UserList("27","Audian","Berat badan bertambah meski hanya bernafas",8),
+            new UserList("27","Audian","Berat badan bertambah meski hanya bernafas",8),
             new UserList("27","Audian","Berat badan bertambah meski hanya bernafas",8)
     };
     public static ListFrag newInstance() {
