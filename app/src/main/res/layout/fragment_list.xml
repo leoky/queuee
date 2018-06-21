@@ -11,6 +11,7 @@
         android:layout_height="0dp"
         android:id="@+id/tvNumber"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:paddingLeft="@dimen/vsmall_hor_padd"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="@+id/tvNote"
         android:text="21"
@@ -18,20 +19,32 @@
         style="@style/Base.TextAppearance.AppCompat.Large"
         android:paddingRight="@dimen/vsmall_hor_padd"
         />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgNow"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/profile"
+        app:layout_constraintLeft_toRightOf="@+id/tvNumber"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/vsmall_ver_mar"
+        app:civ_circle_background_color="#FFF"
+        app:civ_border_width="1dp"
+        app:civ_border_color="#000"/>
 
     <android.support.constraint.Guideline
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:id="@+id/guideLine"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="46dp" />
+        app:layout_constraintGuide_begin="116dp" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColor="#000"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imgNow"
         app:layout_constraintLeft_toRightOf="@+id/guideLine"
+
         android:id="@+id/tvName"
         android:text="Kevin Tok"/>
 
@@ -56,10 +69,12 @@
         app:layout_constraintBottom_toTopOf="@+id/rvList"
         android:text=""/>
 
-   <android.support.v7.widget.RecyclerView
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       app:layout_constraintTop_toBottomOf="@+id/tvNote"
-       android:id="@+id/rvList"></android.support.v7.widget.RecyclerView>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/vsmall_ver_mar"
+        app:layout_constraintTop_toBottomOf="@+id/tvNote"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/rvList"></android.support.v7.widget.RecyclerView>
 
 </android.support.constraint.ConstraintLayout>
