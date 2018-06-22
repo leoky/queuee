@@ -5,6 +5,14 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.ListFrag">
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/colorAccent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/btnDone"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,7 +52,7 @@
         android:textColor="#000"
         app:layout_constraintTop_toTopOf="@id/imgNow"
         app:layout_constraintLeft_toRightOf="@+id/guideLine"
-
+        style="@style/TextAppearance.AppCompat.Medium"
         android:id="@+id/tvName"
         android:text="Kevin Tok"/>
 
@@ -55,7 +63,6 @@
         android:layout_marginTop="@dimen/vsmall_ver_mar"
         app:layout_constraintTop_toBottomOf="@+id/tvName"
         app:layout_constraintLeft_toRightOf="@+id/guideLine"
-        android:layout_marginBottom="4dp"
         android:textColor="#000"
         android:text="Problem :"/>
 
@@ -66,14 +73,38 @@
         app:layout_constraintTop_toBottomOf="@+id/tvProblem"
         app:layout_constraintLeft_toRightOf="@+id/guideLine"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/rvList"
+        app:layout_constraintBottom_toTopOf="@+id/btnDone"
         android:text=""/>
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/vsmall_ver_mar"
+    <Button
+        android:id="@+id/btnDone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_weight="1"
         app:layout_constraintTop_toBottomOf="@+id/tvNote"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="@dimen/vsmall_ver_mar"
+        app:layout_constraintLeft_toRightOf="@+id/btnCancel"
+        android:text="done"/>
+
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintRight_toLeftOf="@+id/btnDone"
+        app:layout_constraintTop_toTopOf="@+id/btnDone"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        android:text="cancel"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/btnCancel"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/rvList"></android.support.v7.widget.RecyclerView>
 

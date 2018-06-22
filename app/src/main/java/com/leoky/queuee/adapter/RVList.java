@@ -14,7 +14,17 @@ import java.util.List;
 
 public class RVList extends RecyclerView.Adapter<RVList.ViewHolder> {
     private List<UserList> userLists;
+    private ClickListener clickListener = null;
     private Activity activity;
+
+    public interface ClickListener{
+        public void itemClicked(View view, int position);
+    }
+
+    public void setClickListener(ClickListener clicklistener) {
+        this.clickListener = clicklistener;
+    }
+
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v =(View)LayoutInflater.from(parent.getContext()).inflate(R.layout.recycleview_list,parent,false);
@@ -39,14 +49,22 @@ public class RVList extends RecyclerView.Adapter<RVList.ViewHolder> {
         return userLists.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         public TextView tvName,tvNumb,tvNote;
         public ViewHolder(View v) {
             super(v);
+            v.setOnClickListener(this);
             tvName = (TextView)v.findViewById(R.id.tvName);
             tvNote = (TextView)v.findViewById(R.id.tvNote);
             tvNumb = (TextView)v.findViewById(R.id.tvNumber);
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (clickListener != null) {
+                clickListener.itemClicked(view, getAdapterPosition());
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.leoky.queuee.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,10 +10,13 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.leoky.queuee.R;
+import com.leoky.queuee.activity.ListDetailActivity;
 import com.leoky.queuee.adapter.RVList;
 import com.leoky.queuee.api.model.UserList;
 
@@ -22,7 +26,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ListFrag extends Fragment {
+public class ListFrag extends Fragment implements RVList.ClickListener{
 
     private List<UserList> lists;
     public RecyclerView recyclerView;
@@ -57,16 +61,16 @@ public class ListFrag extends Fragment {
         recyclerView = (RecyclerView)v.findViewById(R.id.rvList);
 
         recyclerView.setHasFixedSize(true);
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
+
         //use linear layout manager
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-
-        //specifiy an apdapter(see also next exzmple_)
+        //specifiy an apdapter
         RVList myAdapter = new RVList(lists,getActivity());
         recyclerView.setAdapter(myAdapter);
+        myAdapter.setClickListener((RVList.ClickListener) this);
         return v;
     }
 
@@ -78,5 +82,11 @@ public class ListFrag extends Fragment {
             lists.add(u);
         }
 
+    }
+
+    @Override
+    public void itemClicked(View view, int position) {
+        Intent intent = new Intent(getActivity(), ListDetailActivity.class);
+        getActivity().startActivity(intent);
     }
 }
