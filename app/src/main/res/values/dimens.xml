@@ -1,4 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="vsmall_hor_padd">8dp</dimen>
+    <dimen name="vsmall_ver_padd">8dp</dimen>
+    <dimen name="small_hor_padd">16dp</dimen>
+    <dimen name="small_ver_padd">16dp</dimen>
+    <dimen name="medium_hor_padd">32dp</dimen>
+    <dimen name="medium_ver_padd">32dp</dimen>
+
+    <dimen name="vsmall_hor_mar">8dp</dimen>
+    <dimen name="vsmall_ver_mar">8dp</dimen>
+    <dimen name="small_hor_mar">16dp</dimen>
+    <dimen name="small_ver_mar">16dp</dimen>
+    <dimen name="medium_ver_mar">32dp</dimen>
+    <dimen name="medium_hor_mar">32dp</dimen>
+
+    <dimen name="head_padd">5dp</dimen>
+
+    <!--font-->
+    <dimen name="h1">22sp</dimen>
+    <dimen name="h2">18sp</dimen>
+    <dimen name="h3">15sp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>

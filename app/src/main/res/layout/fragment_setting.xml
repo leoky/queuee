@@ -7,34 +7,7 @@
     tools:context=".fragment.SettingFrag">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Doctor"
-        android:fontFamily="monospace"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        android:padding="10dp"
-        android:textColor="#FFF"
-        android:background="#219390"
-        android:textAlignment="center"/>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="#219390"
-        android:src="@drawable/logo"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Queuee"
-        android:textStyle="bold"
-        android:background="#219390"
-        android:textColor="#FFF"
-        android:fontFamily="sans-serif-condensed"
-        android:textSize="25sp"
-        android:paddingLeft="5dp"
-        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
