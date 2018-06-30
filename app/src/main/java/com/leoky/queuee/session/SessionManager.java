@@ -3,6 +3,8 @@ package com.leoky.queuee.session;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.Date;
+
 public class SessionManager {
 
     private static final String PREF_NAME = "UserData";
@@ -19,19 +21,19 @@ public class SessionManager {
     public SharedPreferences pref;
     public SharedPreferences.Editor editor;
 
-    public SessionManager(Context c) {
+    public SessionManager(Context context) {
         this.context = context;
         pref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         editor = pref.edit();
     }
 
     //miss gender
-    public void createUserSession(String email,String password,String name,String imgUrl, String dob, String phone ){
+    public void createUserSession(String email, String password, String name, String imgUrl, Date dob, String phone ){
         editor.putString(KEY_EMAIL,email);
         editor.putString(KEY_PASS,password);
         editor.putString(KEY_NAME,name);
         editor.putString(KEY_IMG,imgUrl);
-        editor.putString(KEY_DOB,dob);
+        editor.putString(KEY_DOB,dob.toString());
         editor.putString(KEY_PHONE,phone);
         editor.putBoolean(KEY_ISLOGIN,true);
         editor.commit();

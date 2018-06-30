@@ -41,12 +41,12 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = (Button)findViewById(R.id.btnLogin);
 
         userService = ApiService.getClient().create(UserService.class);
-        sp =  new SessionManager(getApplicationContext());
+        sp =  new SessionManager(this);
 
         if(sp.isLogin()){
-            finish();
-            Intent i = new Intent(getApplication(),MainActivity.class);
+            Intent i = new Intent(this,MainActivity.class);
             startActivity(i);
+            finish();
         }
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -65,14 +65,11 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<UserData> call, Response<UserData> response) {
                 UserData u = response.body();
-//                System.out.println("haha "+userData.getEmail());
-//                System.out.println("haha "+userData.getName());
-//                System.out.println("haha "+userData.getPassword());
-//                loading.dismiss();
                if(u !=null){
                    sp.createUserSession(u.getEmail(),u.getPassword(),u.getName(),u.getImgurl(),u.getDob(),u.getPhone());
                    Intent i = new Intent(getApplication(),MainActivity.class);
                    startActivity(i);
+                   finish();
                }
 
             }

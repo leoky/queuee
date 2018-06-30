@@ -16,7 +16,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Launcher">
         <activity android:name=".activity.MainActivity">
-
         </activity>
         <activity
             android:name=".activity.ListDetailActivity"
