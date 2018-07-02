@@ -2,7 +2,6 @@ package com.leoky.queuee.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -52,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                loading = ProgressDialog.show(getApplication(), null, "Harap Tunggu...", true, false);
+                loading = ProgressDialog.show(LoginActivity.this, null, "Please wait", true, false);
                 requestLogin();
             }
         });
@@ -69,6 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                    sp.createUserSession(u.getEmail(),u.getPassword(),u.getName(),u.getImgurl(),u.getDob(),u.getPhone());
                    Intent i = new Intent(getApplication(),MainActivity.class);
                    startActivity(i);
+                   loading.dismiss();
                    finish();
                }
 
@@ -76,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<UserData> call, Throwable t) {
+                loading.dismiss();
                 System.out.println("erorr "+t);
             }
         });
