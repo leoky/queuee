@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvName"
         app:layout_constraintLeft_toRightOf="@+id/guideLine"
         android:textColor="#000"
-        android:text="Problem :"/>
+        android:text="@string/tv_problem"/>
 
     <TextView
         android:layout_width="0dp"

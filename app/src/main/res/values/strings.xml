@@ -23,4 +23,11 @@
         completions."
     </string>
 
+    
+    <!--for menu-->
+    <string name="btn_done">done</string>
+    <string name="btn_cancel">cancel</string>
+    <string name="tv_note">Note</string>
+    <string name="tv_problem">Problem :</string>
+
 </resources>
