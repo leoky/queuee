@@ -9,16 +9,22 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.leoky.queuee.R;
 import com.leoky.queuee.activity.ListDetailActivity;
+import com.leoky.queuee.activity.MainActivity;
 import com.leoky.queuee.adapter.RVList;
 import com.leoky.queuee.api.model.UserList;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +35,12 @@ import java.util.List;
 public class ListFrag extends Fragment implements RVList.ClickListener{
 
     private List<UserList> lists;
+
     public RecyclerView recyclerView;
+    private Toolbar toolbar;
+    private LinearLayout llnow;
+    private TextView tvName,tvNote,tvTBNum;
+    private ImageView imgNow;
 
 
     public ListFrag() {
@@ -42,8 +53,17 @@ public class ListFrag extends Fragment implements RVList.ClickListener{
             new UserList("25","David","pilek",8),
             new UserList("26","Thafa","sakit perut",8),
             new UserList("27","Audian","Berat badan bertambah meski hanya bernafas",8),
-            new UserList("27","Audian","Berat badan bertambah meski hanya bernafas",8),
-            new UserList("27","Audian","Berat badan bertambah meski hanya bernafas",8)
+            new UserList("28","Audian","Berat badan bertambah meski hanya bernafas",8),
+            new UserList("29","Audian","Berat badan bertambah meski hanya bernafas",8),
+            new UserList("30","Audian","Berat badan bertambah meski hanya bernafas",8),
+            new UserList("31","Audian","Berat badan bertambah meski hanya bernafas",8),
+            new UserList("32","Audian","Berat badan bertambah meski hanya bernafas",8),
+            new UserList("33","Audian","Berat badan bertambah meski hanya bernafas",8),
+            new UserList("34","Audian","Berat badan bertambah meski hanya bernafas",8),
+            new UserList("35","Audian","Berat badan bertambah meski hanya bernafas",8),
+            new UserList("36","Audian","Berat badan bertambah meski hanya bernafas",8),
+            new UserList("37","Audian","Berat badan bertambah meski hanya bernafas",8),
+            new UserList("38","Audian","Berat badan bertambah meski hanya bernafas",8)
     };
     public static ListFrag newInstance() {
         
@@ -58,7 +78,36 @@ public class ListFrag extends Fragment implements RVList.ClickListener{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_list, container, false);
-        recyclerView = (RecyclerView)v.findViewById(R.id.rvList);
+        recyclerView = v.findViewById(R.id.rvList);
+        toolbar = v.findViewById(R.id.toolbar);
+        llnow = v.findViewById(R.id.llnow);
+        imgNow = v.findViewById(R.id.imgNow);
+        tvName= v.findViewById(R.id.tvName);
+        tvNote = v.findViewById(R.id.tvNote);
+        tvTBNum = toolbar.findViewById(R.id.tvTBNum);
+
+        // on process queue now
+        tvTBNum.setText(lists.get(0).getTitle().toString());
+        tvName.setText(lists.get(0).getBody().toString());
+        tvNote.setText(lists.get(0).getNote().toString());
+        Picasso.get().load(R.drawable.profile).into(imgNow);
+
+       tvTBNum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        llnow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ListDetailActivity.class);
+                intent.putExtra(ListDetailActivity.LD_NAME,lists.get(0).getBody());
+                intent.putExtra(ListDetailActivity.LD_NOTE,lists.get(0).getNote());
+                intent.putExtra(ListDetailActivity.LD_NUM,lists.get(0).getTitle());
+                getActivity().startActivity(intent);
+            }
+        });
 
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), LinearLayoutManager.VERTICAL));
@@ -87,6 +136,9 @@ public class ListFrag extends Fragment implements RVList.ClickListener{
     @Override
     public void itemClicked(View view, int position) {
         Intent intent = new Intent(getActivity(), ListDetailActivity.class);
+        intent.putExtra(ListDetailActivity.LD_NAME,lists.get(position).getBody());
+        intent.putExtra(ListDetailActivity.LD_NOTE,lists.get(position).getNote());
+        intent.putExtra(ListDetailActivity.LD_NUM,lists.get(position).getTitle());
         getActivity().startActivity(intent);
     }
 }

@@ -39,9 +39,10 @@ public class RVList extends RecyclerView.Adapter<RVList.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.tvNumb.setText(userLists.get(position).getTitle());
-        holder.tvName.setText(userLists.get(position).getBody());
-        holder.tvNote.setText(userLists.get(position).getNote());
+        int i = (position == 0 ? position + 1 : position);
+        holder.tvNumb.setText(userLists.get(i).getTitle());
+        holder.tvName.setText(userLists.get(i).getBody());
+        holder.tvNote.setText(userLists.get(i).getNote());
     }
 
     @Override
