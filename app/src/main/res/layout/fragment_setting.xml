@@ -3,42 +3,271 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:id="@+id/fragmentsetting"
     tools:context=".fragment.SettingFrag">
 
     <!-- TODO: Update blank fragment layout -->
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:id="@+id/toolbar">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/settings"
+            android:gravity="center_vertical"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            style="@style/Base.TextAppearance.AppCompat.Large"
+            android:textAlignment="center"/>
+    </android.support.v7.widget.Toolbar>
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Settings"
-        android:textStyle="italic"
-        android:background="#219390"
-        android:textColor="#FFF"
-        android:textSize="18sp"
-        android:paddingLeft="5dp"
-        android:paddingBottom="10dp"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="Change Name"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="Change Password"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="Frequently Asked Question"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:text="About us"/>
+        android:padding="20dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:gravity="center_vertical"
+                android:textAppearance="@style/Base.Theme.AppCompat.Dialog.Alert"
+                style="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                android:textSize="23dp"
+                android:paddingLeft="@dimen/vsmall_hor_padd"
+                android:text="My profile"/>
+
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgNow"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:src="@drawable/profile"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                android:layout_marginLeft="@dimen/vsmall_hor_mar"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/vsmall_ver_mar"
+                android:layout_marginBottom="9dp"
+                app:civ_circle_background_color="#FFF"
+                app:civ_border_width="1dp"
+                app:civ_border_color="#000"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#bebebf" />
+
+            <LinearLayout
+                android:id="@+id/nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:text="Nama lengkap"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#bebebe"
+                    android:text="Ricky"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:padding="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:text="Email"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#2980b9"
+                    android:text="rickymartin782@gmail.com"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:padding="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:text="Password"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#2980b9"
+                    android:text="*******************"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tanggal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:padding="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:text="Tanggal lahir"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#bebebf"
+                    android:text="01-01-2001"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:padding="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:text="Gender"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#bebebe"
+                    android:text="Male"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="#bebebf" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:gravity="center_vertical"
+                android:textAppearance="@style/Base.Theme.AppCompat.Dialog.Alert"
+                style="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                android:textSize="23dp"
+                android:paddingLeft="@dimen/vsmall_hor_padd"
+                android:text="Informasi Klinik"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#bebebf" />
+
+            <LinearLayout
+                android:id="@+id/namaklinik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:padding="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:text="Nama Klinik"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#2980b9"
+                    android:text="Klinik ABC"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/Lokasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:padding="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:text="Alamat Klinik"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#2980b9"
+                    android:text="Jl danau torara no 129 D samping bakery enak"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/waktu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:padding="10dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:text="Estimasi waktu default"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#2980b9"
+                    android:text="20 min"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+
+    </ScrollView>
 
 
 </LinearLayout>
