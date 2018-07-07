@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         android:background="@color/colorPrimary"
+        app:contentInsetStart="0dp"
         android:id="@+id/toolbar">
         <TextView
             android:layout_width="match_parent"
@@ -27,37 +28,19 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp">
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="?android:attr/actionBarSize"
-                android:gravity="center_vertical"
-                android:textAppearance="@style/Base.Theme.AppCompat.Dialog.Alert"
-                style="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textStyle="bold"
-                android:textSize="23dp"
-                android:paddingLeft="@dimen/vsmall_hor_padd"
-                android:text="My profile"/>
-
-
-
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgNow"
                 android:layout_width="150dp"
                 android:layout_height="100dp"
                 android:src="@drawable/profile"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar"
-                android:layout_marginLeft="@dimen/vsmall_hor_mar"
-                app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/vsmall_ver_mar"
-                android:layout_marginBottom="9dp"
+                android:layout_marginBottom="@dimen/vsmall_ver_mar"
                 app:civ_circle_background_color="#FFF"
                 app:civ_border_width="1dp"
                 app:civ_border_color="#000"/>
@@ -65,23 +48,23 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#bebebf" />
+                android:background="@color/colorNoLinkText" />
 
             <LinearLayout
-                android:id="@+id/nama"
+                android:id="@+id/llName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
-                android:orientation="vertical">
+                style="@style/MyTheme_SettingBarStyle">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="15dp"
-                    android:text="Nama lengkap"/>
+                    android:textSize="15sp"
+                    android:text="@string/tv_name"/>
                 <TextView
+                    android:id="@+id/tvName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
@@ -89,84 +72,105 @@
                     android:text="Ricky"/>
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/email"
+                android:id="@+id/llEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
-                android:padding="10dp"
-                android:orientation="vertical">
+                style="@style/MyTheme_SettingBarStyle">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="15dp"
-                    android:text="Email"/>
+                    android:textSize="15sp"
+                    android:text="@string/tv_email"/>
                 <TextView
+                    android:id="@+id/tvEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textColor="#2980b9"
+                    android:textColor="@color/colorLinkText"
                     android:text="rickymartin782@gmail.com"/>
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/password"
+                android:id="@+id/llPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
-                android:padding="10dp"
-                android:orientation="vertical">
+                style="@style/MyTheme_SettingBarStyle">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="15dp"
-                    android:text="Password"/>
+                    android:textSize="15sp"
+                    android:text="@string/tv_password"/>
                 <TextView
+                    android:id="@+id/tvPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textColor="#2980b9"
+                    android:textColor="@color/colorLinkText"
                     android:text="*******************"/>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/tanggal"
+                android:id="@+id/llPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
-                android:padding="10dp"
-                android:orientation="vertical">
+                style="@style/MyTheme_SettingBarStyle">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="15dp"
-                    android:text="Tanggal lahir"/>
+                    android:textSize="15sp"
+                    android:text="@string/tv_phone"/>
+                <TextView
+                    android:id="@+id/tvPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorLinkText"
+                    android:text=""/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/llDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                style="@style/MyTheme_SettingBarStyle">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textColor="#bebebf"
+                    android:textSize="15sp"
+                    android:text="@string/tv_date"/>
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorNoLinkText"
                     android:text="01-01-2001"/>
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/time"
+                android:id="@+id/llGender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:padding="10dp"
-                android:orientation="vertical">
+                style="@style/MyTheme_SettingBarStyle">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="15dp"
-                    android:text="Gender"/>
+                    android:textSize="15sp"
+                    android:text="@string/tv_gender"/>
                 <TextView
+                    android:id="@+id/tvGender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
@@ -177,8 +181,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="20dp"
-                android:background="#bebebf" />
+                android:layout_marginTop="@dimen/small_ver_padd"
+                android:background="@color/colorNoLinkText" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -189,77 +193,83 @@
                 android:textStyle="bold"
                 android:textSize="23dp"
                 android:paddingLeft="@dimen/vsmall_hor_padd"
-                android:text="Informasi Klinik"/>
+                android:text="@string/tv_ClinicInfo"/>
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#bebebf" />
+                android:background="@color/colorNoLinkText" />
 
             <LinearLayout
-                android:id="@+id/namaklinik"
+                android:id="@+id/llClinicName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:padding="10dp"
-                android:orientation="vertical">
+                style="@style/MyTheme_SettingBarStyle">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="15dp"
-                    android:text="Nama Klinik"/>
+                    android:textSize="15sp"
+                    android:text="@string/tv_ClinicName"/>
                 <TextView
+                    android:id="@+id/tvCName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textColor="#2980b9"
+                    android:textColor="@color/colorNoLinkText"
                     android:text="Klinik ABC"/>
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/Lokasi"
+                android:id="@+id/llLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:padding="10dp"
-                android:orientation="vertical">
+                style="@style/MyTheme_SettingBarStyle">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="15dp"
-                    android:text="Alamat Klinik"/>
+                    android:textSize="15sp"
+                    android:text="@string/tv_address"/>
                 <TextView
+                    android:id="@+id/tvLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textColor="#2980b9"
+                    android:textColor="@color/colorNoLinkText"
                     android:text="Jl danau torara no 129 D samping bakery enak"/>
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/waktu"
+                android:id="@+id/llTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
-                android:padding="10dp"
-                android:orientation="vertical">
+                style="@style/MyTheme_SettingBarStyle">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textSize="15dp"
-                    android:text="Estimasi waktu default"/>
+                    android:textSize="15sp"
+                    android:text="@string/tv_time"/>
                 <TextView
+                    android:id="@+id/tvTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
-                    android:textColor="#2980b9"
+                    android:textColor="@color/colorLinkText"
                     android:text="20 min"/>
             </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:text="@string/btn_logout"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/small_ver_mar"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:textColor="@color/colorTextNegative" />
 
         </LinearLayout>
 

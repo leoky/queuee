@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,6 +18,8 @@ import com.leoky.queuee.R;
 import com.leoky.queuee.activity.Changedata;
 import com.leoky.queuee.activity.MainActivity;
 import com.leoky.queuee.adapter.RVList;
+import com.leoky.queuee.session.SessionManager;
+import com.squareup.picasso.Picasso;
 
 
 import org.w3c.dom.Text;
@@ -27,6 +30,10 @@ import org.w3c.dom.Text;
 public class SettingFrag extends Fragment{
 
     private LinearLayout email;
+    private TextView tvName, tvEmail,tvDate,tvGender,tvCName,tvLocation,tvTime,tvPhone;
+    private ImageView img;
+
+    private SessionManager sp;
 
     public SettingFrag() {
         // Required empty public constructor
@@ -48,7 +55,19 @@ public class SettingFrag extends Fragment{
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_setting, container, false);
 
-        email = v.findViewById(R.id.email);
+        email = v.findViewById(R.id.llEmail);
+        tvName =v.findViewById(R.id.tvName);
+        tvEmail =v.findViewById(R.id.tvEmail);
+        tvDate =v.findViewById(R.id.tvDate);
+        tvGender =v.findViewById(R.id.tvGender);
+        tvCName =v.findViewById(R.id.tvCName);
+        tvLocation =v.findViewById(R.id.tvLocation);
+        tvTime =v.findViewById(R.id.tvTime);
+        tvPhone =v.findViewById(R.id.tvPhone);
+        img = v.findViewById(R.id.imgNow);
+
+        sp =  new SessionManager(getContext());
+        UpdateData();
 
         email.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,11 +76,23 @@ public class SettingFrag extends Fragment{
                 startActivity(intent);
             }
         });
-
         return v;
 
 
 
+    }
+    private void UpdateData() {
+        if (sp != null) {
+            Picasso.get().load(sp.getSpPhoto()).into(img);
+            tvEmail.setText(sp.getSpEmail());
+            tvName.setText(sp.getSpName());
+            tvDate.setText(sp.getSpDOB());
+            tvGender.setText(sp.getSpGender());
+            tvCName.setText(sp.getSpCName());
+            tvLocation.setText(sp.getSpLocation());
+            tvTime.setText(sp.getSpTime());
+            tvPhone.setText(sp.getSpPhone());
+        }
     }
 
 }

@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         setTheme(R.style.AppThemeNoAB);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
 
         bottomNavigationView = (BottomNavigationView)findViewById(R.id.nav);
 

@@ -5,51 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="@dimen/small_hor_padd"
     tools:context=".activity.Changedata">
-
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        android:id="@+id/toolbar">
-        <TextView
-            android:id="@+id/save"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Save"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:clickable="true"
-            android:textColor="#FFF"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:paddingTop="15dp"
-            android:paddingRight="20dp"
-            style="@style/Base.TextAppearance.AppCompat.Large"
-            android:textAlignment="textEnd"/>
-
-    </android.support.v7.widget.Toolbar>
-
-
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="30dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="15dp"
-            android:text="Email"/>
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textColor="#2980b9"
-            android:text="rickymartin782@gmail.com"/>
-
-    </LinearLayout>
-
-
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:text="Email"/>
+    <EditText
+        android:id="@+id/tvEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="#2980b9"
+        android:text="rickymartin782@gmail.com"/>
 </LinearLayout>

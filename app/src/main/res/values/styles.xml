@@ -1,8 +1,9 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppThemeNoAB" parent="Theme.AppCompat.Light">
+    <style name="AppThemeNoAB" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/MyTheme.ActionBarStyle</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -10,14 +11,34 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/MyTheme.ActionBarStyle</item>
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="AppTheme.Launcher">
+        <item name="android:actionBarStyle">@style/MyTheme.ActionBarStyle</item>
         <item name="android:windowBackground">@drawable/launch_screen</item>
         <!-- Optional, on Android 5+ you can modify the colorPrimaryDark color to match the windowBackground color for further branding-->
         <!-- <item name="colorPrimaryDark">@android:color/white</item> -->
+    </style>
+
+    <!--action bar-->
+    <style name="MyTheme.ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="MyTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!--menu setting-->
+    <style name="MyTheme_SettingBarStyle">
+        <item name="android:paddingTop">@dimen/small_ver_padd</item>
+        <item name="android:paddingBottom">@dimen/vsmall_ver_padd</item>
+        <item name="android:paddingLeft">@dimen/small_ver_padd</item>
+        <item name="android:paddingRight">@dimen/small_ver_padd</item>
+        <item name="android:orientation">vertical</item>
     </style>
 </resources>

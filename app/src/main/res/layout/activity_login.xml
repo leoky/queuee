@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    android:background="@drawable/back"
     tools:context=".activity.LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_margin="60dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/medium_ver_mar"
         android:background="#FFF"
         android:orientation="vertical">
 
@@ -72,6 +71,7 @@
             android:textColor="#FFF"
             android:textStyle="bold"
             android:text="@string/action_sign_in_short"
+            android:layout_marginBottom="@dimen/medium_ver_mar"
             app:layout_constraintTop_toBottomOf="@+id/llpassword"/>
 
 
