@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="@dimen/small_hor_padd"
-    tools:context=".activity.Changedata">
+    tools:context=".activity.ChangeEmail">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,5 +19,12 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textColor="#2980b9"
+        android:inputType="textEmailAddress"
         android:text="rickymartin782@gmail.com"/>
+    <Button
+        android:id="@+id/btnSave"
+        android:clickable="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save"/>
 </LinearLayout>

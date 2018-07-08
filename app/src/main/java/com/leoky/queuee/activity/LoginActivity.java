@@ -11,7 +11,7 @@ import android.widget.EditText;
 
 import com.leoky.queuee.R;
 import com.leoky.queuee.api.ApiService;
-import com.leoky.queuee.api.model.DoctorData;
+import com.leoky.queuee.api.model.UserData;
 import com.leoky.queuee.api.service.UserService;
 import com.leoky.queuee.session.SessionManager;
 
@@ -58,13 +58,13 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     private void requestLogin(){
-        Call<DoctorData> callUser = userService.loginRequest(tvEmail.getText().toString(),tvPassword.getText().toString());
+        Call<UserData> callUser = userService.loginRequest(tvEmail.getText().toString(),tvPassword.getText().toString());
 
-        callUser.enqueue(new Callback<DoctorData>() {
+        callUser.enqueue(new Callback<UserData>() {
             @Override
-            public void onResponse(Call<DoctorData> call, Response<DoctorData> response) {
+            public void onResponse(Call<UserData> call, Response<UserData> response) {
 //                UserData u = response.body();
-                DoctorData u = response.body();
+                UserData u = response.body();
                if(u !=null){
                    sp.createUserSession(u.getId(),u.getEmail(),u.getName(),u.getPassword(),u.getPhoto(),u.getDob(),u.getPhone(),u.getGender(),
                            u.getClinic().getClinic_name(),u.getClinic().getLocation(),u.getClinic().getEstimate());
@@ -76,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<DoctorData> call, Throwable t) {
+            public void onFailure(Call<UserData> call, Throwable t) {
                 loading.dismiss();
                 System.out.println("erorr "+t);
             }

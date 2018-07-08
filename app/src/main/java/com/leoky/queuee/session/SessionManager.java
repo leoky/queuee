@@ -153,4 +153,7 @@ public class SessionManager {
         editor.putString(KEY_GENDER, time);
         editor.commit();
     }
+    public void clearSp(){
+        pref.edit().clear().commit();
+    }
 }

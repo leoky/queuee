@@ -6,9 +6,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
 //@Entity(tableName = "userData")
-public class DoctorData {
+public class UserData {
 //    @SerializedName("id")
-    private String id;
+    private String _id;
 //    @SerializedName("name")
     private String name;
 //    @SerializedName("email")
@@ -27,8 +27,8 @@ public class DoctorData {
     private Date dob;
     private Clinic clinic;
 
-    public DoctorData(String id, String name, String email, String password, String photo, Date dob, String phone, String category, String gender, Clinic clinic) {
-        this.id = id;
+    public UserData(String id, String name, String email, String password, String photo, Date dob, String phone, String category, String gender, Clinic clinic) {
+        this._id = id;
         this.name = name;
         this.email = email;
         this.password = password;
@@ -41,11 +41,11 @@ public class DoctorData {
     }
 
     public String getId() {
-        return id;
+        return _id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this._id = id;
     }
 
     public String getName() {
