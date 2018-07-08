@@ -20,6 +20,7 @@ public class SessionManager {
     private static final String KEY_TIME = "userTime";
     private static final String KEY_GENDER = "userGender";
     private static final String KEY_CNAME = "userCName";
+    private static final String KEY_CSTATUS = "userCStatus";
 
 
     public Context context;
@@ -34,7 +35,7 @@ public class SessionManager {
 
     //miss gender
     public void createUserSession(String id, String email, String name, String password, String imgUrl, Date dob, String phone,String gender,String cname,
-                                  String location,String time){
+                                  String location,String time,String status){
         editor.putString(KEY_ID,id);
         editor.putString(KEY_EMAIL,email);
         editor.putString(KEY_PASS,password);
@@ -47,6 +48,7 @@ public class SessionManager {
         editor.putString(KEY_TIME,time);
         editor.putString(KEY_CNAME,cname);
         editor.putBoolean(KEY_ISLOGIN,true);
+        editor.putString(KEY_CSTATUS,status);
         editor.commit();
     }
     public void saveSpId(String id){
@@ -80,7 +82,12 @@ public class SessionManager {
         editor.putString(KEY_NAME, name);
         editor.commit();
     }
+    public String getSpCStatus(){return pref.getString(KEY_CSTATUS,"");}
 
+    public void saveSpCStatus(String status){
+        editor.putString(KEY_CSTATUS,status);
+        editor.commit();
+    }
     public String getSpName() {
         return pref.getString(KEY_NAME, "");
     }

@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.leoky.queuee.R;
 import com.leoky.queuee.activity.ChangeEmail;
 import com.leoky.queuee.activity.LoginActivity;
+import com.leoky.queuee.activity.MainActivity;
 import com.leoky.queuee.session.SessionManager;
 import com.squareup.picasso.Picasso;
 
@@ -30,7 +31,6 @@ public class SettingFrag extends Fragment{
     private ImageView img;
     private Button btnLogout;
 
-    private SessionManager sp;
 
     public SettingFrag() {
         // Required empty public constructor
@@ -64,7 +64,6 @@ public class SettingFrag extends Fragment{
         img = v.findViewById(R.id.imgNow);
         btnLogout = v.findViewById(R.id.btn_logout);
 
-        sp =  new SessionManager(getContext());
         UpdateData();
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +74,7 @@ public class SettingFrag extends Fragment{
                         .setMessage("Are you sure?")
                         .setPositiveButton("YES", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                sp.clearSp();
+                                MainActivity.sp.clearSp();
                                 getActivity().finish();
                                 startActivity(new Intent(getActivity(),LoginActivity.class));
 
@@ -109,16 +108,16 @@ public class SettingFrag extends Fragment{
 
 
     private void UpdateData() {
-        if (sp != null) {
-            Picasso.get().load(sp.getSpPhoto()).into(img);
-            tvEmail.setText(sp.getSpEmail());
-            tvName.setText(sp.getSpName());
-            tvDate.setText(sp.getSpDOB());
-            tvGender.setText(sp.getSpGender());
-            tvCName.setText(sp.getSpCName());
-            tvLocation.setText(sp.getSpLocation());
-            tvTime.setText(sp.getSpTime());
-            tvPhone.setText(sp.getSpPhone());
+        if (MainActivity.sp != null) {
+            Picasso.get().load(MainActivity.sp.getSpPhoto()).into(img);
+            tvEmail.setText(MainActivity.sp.getSpEmail());
+            tvName.setText(MainActivity.sp.getSpName());
+            tvDate.setText(MainActivity.sp.getSpDOB());
+            tvGender.setText(MainActivity.sp.getSpGender());
+            tvCName.setText(MainActivity.sp.getSpCName());
+            tvLocation.setText(MainActivity.sp.getSpLocation());
+            tvTime.setText(MainActivity.sp.getSpTime());
+            tvPhone.setText(MainActivity.sp.getSpPhone());
         }
     }
 

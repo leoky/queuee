@@ -30,9 +30,7 @@ public class ChangeEmail extends AppCompatActivity {
     EditText editText;
     Button btnSave;
 
-    public UserService userService;
     private ProgressDialog loading;
-    SessionManager sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,13 +43,9 @@ public class ChangeEmail extends AppCompatActivity {
         editText = findViewById(R.id.tvEditText);
         btnSave = findViewById(R.id.btnSave);
 
-        //api
-        userService = ApiService.getClient().create(UserService.class);
-        //share preference
-        sp  = new SessionManager(this);
 
-        if(sp!=null){
-            editText.setText(sp.getSpEmail());
+        if(MainActivity.sp!=null){
+            editText.setText(MainActivity.sp.getSpEmail());
         }else{
             finish();
         }
@@ -92,14 +86,14 @@ public class ChangeEmail extends AppCompatActivity {
 //        }
 //    }
     private void updateData(){
-        retrofit2.Call<UserData> callUser = userService.updateEmail(sp.getSpId(),editText.getText().toString());
+        retrofit2.Call<UserData> callUser = MainActivity.userService.updateEmail(MainActivity.sp.getSpId(),editText.getText().toString());
         callUser.enqueue(new Callback<UserData>() {
             @Override
             public void onResponse(retrofit2.Call<UserData> call, Response<UserData> response) {
                 UserData u = response.body();
 
                 if(u!=null){
-                    sp.saveSpEmail(editText.getText().toString());
+                    MainActivity.sp.saveSpEmail(editText.getText().toString());
 //                    loading.setMessage("Update Succsess");
                     loading.dismiss();
                     finish();

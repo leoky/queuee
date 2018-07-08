@@ -9,14 +9,21 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.leoky.queuee.R;
+import com.leoky.queuee.api.ApiService;
+import com.leoky.queuee.api.service.UserService;
 import com.leoky.queuee.fragment.HistoryFrag;
 import com.leoky.queuee.fragment.HomeFrag;
 import com.leoky.queuee.fragment.ListFrag;
 import com.leoky.queuee.fragment.SettingFrag;
 import com.leoky.queuee.helper.BottomNavigationViewHelper;
+import com.leoky.queuee.session.SessionManager;
 
 public class MainActivity extends AppCompatActivity {
+
     private BottomNavigationView bottomNavigationView;
+
+    public static UserService userService;
+    public static SessionManager sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +31,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bottomNavigationView = (BottomNavigationView)findViewById(R.id.nav);
+        bottomNavigationView = findViewById(R.id.nav);
+
+        //ini api and share preference
+        userService = ApiService.getClient().create(UserService.class);
+        sp = new SessionManager(this);
 
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().add(R.id.frame_layout, new HomeFrag(),HomeFrag.class.getSimpleName()).commit();
         }
-
 
         BottomNavigationViewHelper.removeShiftMode(bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

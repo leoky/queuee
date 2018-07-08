@@ -19,6 +19,25 @@ public interface UserService {
     Call<UserData> updateEmail(@Path("id") String id,
                                 @Field("newEmail") String email);
 
-//    @GET("doctor/list/john@gmail.com")
-//    Call<UserData> takedata();
+    @FormUrlEncoded
+    @POST("doctor/update/password/{id}")
+    Call<UserData> updatePassword(@Path("id") String id,
+                                    @Field("currentPassword") String pass,
+                                    @Field("newPassword") String newPass);
+
+    @FormUrlEncoded
+    @POST("doctor/update/phone/{id}")
+    Call<UserData> updatePhone(@Path("id") String id,
+                                  @Field("newPhone") String phone);
+
+    @FormUrlEncoded
+    @POST("doctor/update/estimate/{id}")
+    Call<UserData> updateCSTime(@Path("id") String id,
+                                  @Field("newEstimate") String time);
+
+    @FormUrlEncoded
+    @POST("doctor/update/status/{id}")
+    Call<UserData> updateCStatus(@Path("id") String id,
+                                 @Field("newStatus") String cstatus);
+
 }
