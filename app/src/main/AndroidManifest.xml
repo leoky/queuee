@@ -28,7 +28,8 @@
         </activity>
         <activity
             android:name=".activity.ChangeEmail"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activity.ChangePassword"></activity>
     </application>
 
 </manifest>

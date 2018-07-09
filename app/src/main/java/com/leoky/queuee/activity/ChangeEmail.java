@@ -29,6 +29,7 @@ public class ChangeEmail extends AppCompatActivity {
 
     EditText editText;
     Button btnSave;
+    private String data=null;
 
     private ProgressDialog loading;
 
@@ -43,9 +44,9 @@ public class ChangeEmail extends AppCompatActivity {
         editText = findViewById(R.id.tvEditText);
         btnSave = findViewById(R.id.btnSave);
 
-
         if(MainActivity.sp!=null){
             editText.setText(MainActivity.sp.getSpEmail());
+            data = editText.getText().toString();
         }else{
             finish();
         }
@@ -57,14 +58,19 @@ public class ChangeEmail extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                btnSave.setClickable(true);
-                btnSave.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        loading = ProgressDialog.show(ChangeEmail.this, null, "Please wait", true, false);
-                        updateData();
-                    }
-                });
+                if(!editText.getText().toString().equals(data) && !editText.getText().toString().equals("")){
+                    btnSave.setBackground(getDrawable(R.color.colorBtnEnable));
+                    btnSave.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            loading = ProgressDialog.show(ChangeEmail.this, null, "Please wait", true, false);
+                            updateData();
+                        }
+                    });
+                }else{
+                    btnSave.setClickable(false);
+                    btnSave.setBackground(getDrawable(R.color.colorBtnDisable));
+                }
             }
 
             @Override

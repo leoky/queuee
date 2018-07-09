@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.leoky.queuee.R;
 import com.leoky.queuee.activity.ChangeEmail;
+import com.leoky.queuee.activity.ChangePassword;
 import com.leoky.queuee.activity.LoginActivity;
 import com.leoky.queuee.activity.MainActivity;
 import com.leoky.queuee.session.SessionManager;
@@ -26,7 +27,6 @@ import com.squareup.picasso.Picasso;
  */
 public class SettingFrag extends Fragment{
 
-    private LinearLayout email;
     private TextView tvName, tvEmail,tvDate,tvGender,tvCName,tvLocation,tvTime,tvPhone;
     private ImageView img;
     private Button btnLogout;
@@ -52,7 +52,6 @@ public class SettingFrag extends Fragment{
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_setting, container, false);
 
-        email = v.findViewById(R.id.llEmail);
         tvName =v.findViewById(R.id.tvName);
         tvEmail =v.findViewById(R.id.tvEmail);
         tvDate =v.findViewById(R.id.tvDate);
@@ -89,13 +88,16 @@ public class SettingFrag extends Fragment{
             }
         });
 
-        email.setOnClickListener(new View.OnClickListener() {
+        v.findViewById(R.id.llEmail).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getActivity(), ChangeEmail.class);
-//                i.putExtra(ChangeEmail.KEY_DATA,tvEmail.getText().toString());
-//                i.putExtra(ChangeEmail.KEY_ID,sp.getSpId());
-                startActivity(i);
+                startActivity( new Intent(getActivity(), ChangeEmail.class));
+            }
+        });
+        v.findViewById(R.id.llPassword).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), ChangePassword.class));
             }
         });
         return v;

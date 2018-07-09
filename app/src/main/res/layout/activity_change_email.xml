@@ -25,6 +25,7 @@
         android:id="@+id/btnSave"
         android:clickable="false"
         android:layout_width="match_parent"
+        android:background="@color/colorBtnDisable"
         android:layout_height="wrap_content"
         android:text="@string/save"/>
 </LinearLayout>

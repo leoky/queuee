@@ -115,5 +115,8 @@
     <string name="tv_time">Estimate Time</string>
     <string name="tv_phone">Phone</string>
     <string name="btn_logout">log out</string>
+    <string name="tv_confirm_password">Confirm Password</string>
+    <string name="tv_current_password">Current Password</string>
+    <string name="tv_new_password">New Password</string>
 
 </resources>
