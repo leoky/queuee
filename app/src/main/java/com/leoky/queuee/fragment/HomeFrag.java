@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import com.leoky.queuee.R;
 import com.leoky.queuee.activity.MainActivity;
@@ -25,6 +26,7 @@ import retrofit2.Response;
 public class HomeFrag extends Fragment {
     private SwitchCompat sw;
     private Toolbar toolbar;
+    private TextView tvName;
 
     public HomeFrag() {
         // Required empty public constructor
@@ -47,6 +49,7 @@ public class HomeFrag extends Fragment {
 
         toolbar = v.findViewById(R.id.toolbar);
         sw = toolbar.findViewById(R.id.sw);
+        tvName = v.findViewById(R.id.tvName);
 
         updateView();
 
@@ -61,6 +64,8 @@ public class HomeFrag extends Fragment {
     }
     private void updateView(){
         sw.setChecked((MainActivity.sp.getSpCStatus().equals("Open")? true : false));
+        tvName.setText(MainActivity.sp.getSpName());
+
     }
 
     private void updateData(){
