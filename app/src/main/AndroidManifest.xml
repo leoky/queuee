@@ -29,7 +29,8 @@
         <activity
             android:name=".activity.ChangeEmail"
             android:theme="@style/AppTheme" />
-        <activity android:name=".activity.ChangePassword"></activity>
+        <activity android:name=".activity.ChangePassword" />
+        <activity android:name=".activity.ChangePhone"></activity>
     </application>
 
 </manifest>

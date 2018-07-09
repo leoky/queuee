@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.leoky.queuee.R;
 import com.leoky.queuee.activity.ChangeEmail;
 import com.leoky.queuee.activity.ChangePassword;
+import com.leoky.queuee.activity.ChangePhone;
 import com.leoky.queuee.activity.LoginActivity;
 import com.leoky.queuee.activity.MainActivity;
 import com.leoky.queuee.session.SessionManager;
@@ -98,6 +99,12 @@ public class SettingFrag extends Fragment{
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), ChangePassword.class));
+            }
+        });
+        v.findViewById(R.id.llPhone).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), ChangePhone.class));
             }
         });
         return v;
