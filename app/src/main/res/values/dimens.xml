@@ -6,6 +6,8 @@
     <dimen name="small_ver_padd">16dp</dimen>
     <dimen name="medium_hor_padd">32dp</dimen>
     <dimen name="medium_ver_padd">32dp</dimen>
+    <dimen name="large_hor_padd">64dp</dimen>
+    <dimen name="large_ver_padd">64dp</dimen>
 
     <dimen name="vsmall_hor_mar">8dp</dimen>
     <dimen name="vsmall_ver_mar">8dp</dimen>
@@ -13,6 +15,8 @@
     <dimen name="small_ver_mar">16dp</dimen>
     <dimen name="medium_ver_mar">32dp</dimen>
     <dimen name="medium_hor_mar">32dp</dimen>
+    <dimen name="large_hor_mar">64dp</dimen>
+    <dimen name="large_ver_mar">64dp</dimen>
 
     <dimen name="head_padd">5dp</dimen>
 

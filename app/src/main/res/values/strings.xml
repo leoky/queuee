@@ -118,5 +118,9 @@
     <string name="tv_confirm_password">Confirm Password</string>
     <string name="tv_current_password">Current Password</string>
     <string name="tv_new_password">New Password</string>
+    <string name="tv_welcome">Welcome Back,</string>
+    <string name="tv_ex_name">dr. Leo</string>
+    <string name="tv_total_queue">Total queue</string>
+    <string name="tv_complete">Complete</string>
 
 </resources>
