@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".activity.ChangePhone">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:text="@string/tv_phone"/>
+    <EditText
+        android:id="@+id/tvEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="#2980b9"
+        android:inputType="phone"
+        android:text=""/>
+    <Button
+        android:id="@+id/btnSave"
+        android:clickable="false"
+        android:layout_width="match_parent"
+        android:background="@color/colorBtnDisable"
+        android:layout_height="wrap_content"
+        android:text="@string/save"/>
+
+</LinearLayout>
