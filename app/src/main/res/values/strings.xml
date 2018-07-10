@@ -122,5 +122,7 @@
     <string name="tv_ex_name">dr. Leo</string>
     <string name="tv_total_queue">Total queue</string>
     <string name="tv_complete">Complete</string>
+    <string name="online">online</string>
+    <string name="offline">offline</string>
 
 </resources>

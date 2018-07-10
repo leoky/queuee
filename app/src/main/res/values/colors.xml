@@ -6,7 +6,7 @@
 
     <color name="colorLinkText">#2980b9</color>
     <color name="colorNoLinkText">#bebebf</color>
-    <color name="colorTextNegative">#d80707</color>
+    <color name="colorNegative">#d80707</color>
     <color name="colorBtnEnable">#00e431</color>
     <color name="colorBtnDisable">#3300e431</color>
 </resources>

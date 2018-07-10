@@ -1,9 +1,5 @@
 package com.leoky.queuee.api.model;
 
-import android.arch.persistence.room.Entity;
-
-import com.google.gson.annotations.SerializedName;
-
 import java.util.Date;
 //@Entity(tableName = "userData")
 public class UserData {

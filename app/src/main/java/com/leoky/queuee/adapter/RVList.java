@@ -8,17 +8,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.leoky.queuee.R;
-import com.leoky.queuee.api.model.UserList;
+import com.leoky.queuee.api.model.Queue;
 
 import java.util.List;
 
 public class RVList extends RecyclerView.Adapter<RVList.ViewHolder> {
-    private List<UserList> userLists;
+    private List<Queue> queues;
     private ClickListener clickListener = null;
     private Activity activity;
 
     public interface ClickListener{
-        public void itemClicked(View view, int position);
+         void itemClicked(View view, int position);
     }
 
     public void setClickListener(ClickListener clicklistener) {
@@ -27,27 +27,28 @@ public class RVList extends RecyclerView.Adapter<RVList.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v =(View)LayoutInflater.from(parent.getContext()).inflate(R.layout.recycleview_list,parent,false);
+        View v =LayoutInflater.from(parent.getContext()).inflate(R.layout.recycleview_list,parent,false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
 
-    public RVList(List<UserList> userLists ,Activity activity){
-        this.userLists = userLists;
+    public RVList(List<Queue> queues ,Activity activity){
+        this.queues = queues;
         this.activity = activity;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        int i = (position == 0 ? position + 1 : position);
-        holder.tvNumb.setText(userLists.get(i).getTitle());
-        holder.tvName.setText(userLists.get(i).getBody());
-        holder.tvNote.setText(userLists.get(i).getNote());
+            if(queues.get(position).getStatus().equals("Queue")) {
+            holder.tvNumb.setText(queues.get(position).getOrder_no());
+            holder.tvName.setText(queues.get(position).getPatient().getName());
+            holder.tvNote.setText(queues.get(position).getNote());
+        }
     }
 
     @Override
     public int getItemCount() {
-        return userLists.size();
+        return queues.size()-1;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{

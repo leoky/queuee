@@ -13,6 +13,7 @@ public class ListDetailActivity extends AppCompatActivity {
     public static String LD_PHOTO = "LD_PHOTO";
     public static String LD_NOTE = "LD_NOTE";
     public static String LD_NUM = "LD_NUM";
+    public static String LD_STATUS = "LD_STATUS";
 
     private TextView tvNote,tvNum;
 

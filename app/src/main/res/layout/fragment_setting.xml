@@ -270,7 +270,7 @@
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/small_ver_mar"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:textColor="@color/colorTextNegative" />
+                android:textColor="@color/colorNegative" />
 
         </LinearLayout>
 

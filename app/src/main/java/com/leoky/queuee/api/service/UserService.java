@@ -1,10 +1,12 @@
 package com.leoky.queuee.api.service;
 
+import com.leoky.queuee.api.model.RepoQueue;
 import com.leoky.queuee.api.model.UserData;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
@@ -40,4 +42,17 @@ public interface UserService {
     Call<UserData> updateCStatus(@Path("id") String id,
                                  @Field("newStatus") String cstatus);
 
+    @FormUrlEncoded
+    @POST("doctor/done/{queue_id}")
+    Call<RepoQueue> queueDone(@Path("queue_id") String id,
+                                 @Field("result") String result);
+
+//    @FormUrlEncoded
+//    @POST("doctor/done/{queue_id}")
+//    Call<RepoQueue> queueCancel(@Path("queue_id") String id,
+//                              @Field("result") String result);
+
+
+    @GET("queue/list")
+    Call<RepoQueue> getQueueList();
 }
