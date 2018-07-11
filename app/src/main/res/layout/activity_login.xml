@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LOGIN"
+            android:text="LOGIN AS DOCTOR"
             android:textAlignment="center"
             android:padding="10dp"
             android:textStyle="bold"
