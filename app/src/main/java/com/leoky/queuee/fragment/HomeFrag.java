@@ -13,10 +13,8 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.leoky.queuee.R;
-import com.leoky.queuee.activity.LoginActivity;
 import com.leoky.queuee.activity.MainActivity;
-import com.leoky.queuee.api.model.UserData;
-import com.leoky.queuee.session.SessionManager;
+import com.leoky.queuee.api.model.Home;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,7 +26,7 @@ import retrofit2.Response;
 public class HomeFrag extends Fragment {
     private SwitchCompat sw;
     private Toolbar toolbar;
-    private TextView tvName,tvStatus;
+    private TextView tvName,tvStatus,tvTotalQueue,tvTotalComplete,tvQueue,tvComplete;
     ProgressDialog loading;
 
 
@@ -55,6 +53,10 @@ public class HomeFrag extends Fragment {
         sw = toolbar.findViewById(R.id.sw);
         tvName = v.findViewById(R.id.tvName);
         tvStatus = v.findViewById(R.id.tvStatus);
+        tvTotalComplete = v.findViewById(R.id.tvCompleteNum);
+        tvTotalQueue = v.findViewById(R.id.tvTotalQueNum);
+        tvQueue = v.findViewById(R.id.tvTotalQue);
+        tvComplete = v.findViewById(R.id.tvComplete);
 
         loading = ProgressDialog.show(getContext(), null, "Please wait", true, false);
         updateView();
@@ -71,6 +73,10 @@ public class HomeFrag extends Fragment {
         return v;
     }
     private void updateView(){
+        tvTotalComplete.setVisibility((MainActivity.sp.getSpCStatus().equals("Open")? View.VISIBLE : View.GONE));
+        tvTotalQueue.setVisibility((MainActivity.sp.getSpCStatus().equals("Open")? View.VISIBLE : View.GONE));
+        tvQueue.setVisibility((MainActivity.sp.getSpCStatus().equals("Open")? View.VISIBLE : View.GONE));
+        tvComplete.setVisibility((MainActivity.sp.getSpCStatus().equals("Open")? View.VISIBLE : View.GONE));
         sw.setChecked((MainActivity.sp.getSpCStatus().equals("Open")? true : false));
         tvName.setText(MainActivity.sp.getSpName());
         tvStatus.setText((sw.isChecked()? getString(R.string.online) : getString(R.string.offline)));
@@ -79,14 +85,16 @@ public class HomeFrag extends Fragment {
 
     private void updateData(){
         String status = (sw.isChecked()? "Open" : "Close");
-        Call<UserData> d = MainActivity.userService.updateCStatus(MainActivity.sp.getSpId(),status);
-        d.enqueue(new Callback<UserData>() {
+        Call<Home> d = MainActivity.userService.updateCStatus(MainActivity.sp.getSpId(),status);
+        d.enqueue(new Callback<Home>() {
             @Override
-            public void onResponse(Call<UserData> call, Response<UserData> response) {
-                UserData u = response.body();
+            public void onResponse(Call<Home> call, Response<Home> response) {
+                Home u = response.body();
                 if(u!=null){
-                    MainActivity.sp.saveSpCStatus(u.getClinic().getStatus());
+                    MainActivity.sp.saveSpCStatus(u.getStatus());
                     updateView();
+                    tvTotalComplete.setText(u.getTotal_complete());
+                    tvTotalQueue.setText(u.getTotal_queue());
                     loading.dismiss();
                 }else{
                     System.out.println("nulllll ");
@@ -95,8 +103,9 @@ public class HomeFrag extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<UserData> call, Throwable t) {
+            public void onFailure(Call<Home> call, Throwable t) {
                 System.out.println("erorr "+ t );
+                loading.dismiss();
             }
         });
     }

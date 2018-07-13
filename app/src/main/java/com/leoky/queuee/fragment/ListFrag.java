@@ -3,23 +3,18 @@ package com.leoky.queuee.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.leoky.queuee.R;
 import com.leoky.queuee.activity.ListDetailActivity;
@@ -27,10 +22,8 @@ import com.leoky.queuee.activity.MainActivity;
 import com.leoky.queuee.adapter.RVList;
 import com.leoky.queuee.api.model.Queue;
 import com.leoky.queuee.api.model.RepoQueue;
-import com.leoky.queuee.api.model.UserList;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -106,20 +99,14 @@ public class ListFrag extends Fragment implements RVList.ClickListener{
         v.findViewById(R.id.imgRefresh).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pb.setVisibility(View.VISIBLE);
                 getQueueList();
             }
         });
         v.findViewById(R.id.btnDone).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                System.out.println("NO "+lists.size());
-//                if(lists.size()>0){
-//                    lists.remove(0);
-//                    updateView();
-//                }else{
-//                    lists.clear();
-//                }
-//                myAdapter.notifyDataSetChanged();
+                doneQueue();
             }
         });
         v.findViewById(R.id.btnCancel).setOnClickListener(new View.OnClickListener() {
@@ -145,15 +132,18 @@ public class ListFrag extends Fragment implements RVList.ClickListener{
     }
     private void updateView(){
         tvTBTotalList.setText(numNow);
-        if(lists.get(0).getStatus().equals("Progress")){
-            tvTBNum.setText(lists.get(0).getOrder_no());
-            tvName.setText(lists.get(0).getPatient().getName());
-            tvNote.setText(lists.get(0).getNote());
-            Picasso.get().load(R.drawable.profile).into(imgNow);
+        if(lists.size()!=0){
+            if(lists.get(0).getStatus().equals("Progress")){
+                tvTBNum.setText(lists.get(0).getOrder_no());
+                tvName.setText(lists.get(0).getPatient().getName());
+                tvNote.setText(lists.get(0).getNote());
+                Picasso.get().load(R.drawable.profile).into(imgNow);
+            }
         }
+
     }
     private void getQueueList(){
-        Call<RepoQueue> call = MainActivity.userService.getQueueList();
+        Call<RepoQueue> call = MainActivity.userService.getQueueList(MainActivity.sp.getSpId());
         call.enqueue(new Callback<RepoQueue>() {
             @Override
             public void onResponse(Call<RepoQueue> call, Response<RepoQueue> response) {
@@ -161,13 +151,32 @@ public class ListFrag extends Fragment implements RVList.ClickListener{
                 lists = u.getQueue();
                 numNow = u.getTotal_queue();
                 updateView();
-                setRecyclerView();
+                if(u.getQueue().size()!=0){
+                    setRecyclerView();
+                }
                 pb.setVisibility(View.GONE);
             }
 
             @Override
             public void onFailure(Call<RepoQueue> call, Throwable t) {
                 System.out.println("errror" + t);
+            }
+        });
+    }
+    private void doneQueue(){
+        Call<RepoQueue> c = MainActivity.userService.queueDone(lists.get(0).get_id(),"");
+        c.enqueue(new Callback<RepoQueue>() {
+            @Override
+            public void onResponse(Call<RepoQueue> call, Response<RepoQueue> response) {
+                RepoQueue u = response.body();
+                lists = u.getQueue();
+                numNow = u.getTotal_queue();
+                myAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<RepoQueue> call, Throwable t) {
+                System.out.println("errr "+t);
             }
         });
     }

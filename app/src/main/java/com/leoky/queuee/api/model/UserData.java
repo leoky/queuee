@@ -22,9 +22,10 @@ public class UserData {
 //    @SerializedName("dob")
     private Date dob;
     private Clinic clinic;
+    private String error;
 
-    public UserData(String id, String name, String email, String password, String photo, Date dob, String phone, String category, String gender, Clinic clinic) {
-        this._id = id;
+    public UserData(String _id, String name, String email, String password, String photo, String phone, String category, String gender, Date dob, Clinic clinic, String error) {
+        this._id = _id;
         this.name = name;
         this.email = email;
         this.password = password;
@@ -34,14 +35,15 @@ public class UserData {
         this.gender = gender;
         this.dob = dob;
         this.clinic = clinic;
+        this.error = error;
     }
 
-    public String getId() {
+    public String get_id() {
         return _id;
     }
 
-    public void setId(String id) {
-        this._id = id;
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getName() {
@@ -114,5 +116,13 @@ public class UserData {
 
     public void setClinic(Clinic clinic) {
         this.clinic = clinic;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
     }
 }

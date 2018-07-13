@@ -1,5 +1,6 @@
 package com.leoky.queuee.api.service;
 
+import com.leoky.queuee.api.model.Home;
 import com.leoky.queuee.api.model.RepoQueue;
 import com.leoky.queuee.api.model.UserData;
 
@@ -39,8 +40,8 @@ public interface UserService {
 
     @FormUrlEncoded
     @POST("doctor/update/status/{id}")
-    Call<UserData> updateCStatus(@Path("id") String id,
-                                 @Field("newStatus") String cstatus);
+    Call<Home> updateCStatus(@Path("id") String id,
+                             @Field("newStatus") String cstatus);
 
     @FormUrlEncoded
     @POST("doctor/done/{queue_id}")
@@ -53,6 +54,6 @@ public interface UserService {
 //                              @Field("result") String result);
 
 
-    @GET("queue/list")
-    Call<RepoQueue> getQueueList();
+    @GET("queue/list/{doctor_id}")
+    Call<RepoQueue> getQueueList(@Path("doctor_id")String id);
 }

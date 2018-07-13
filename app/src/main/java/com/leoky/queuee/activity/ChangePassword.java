@@ -1,7 +1,6 @@
 package com.leoky.queuee.activity;
 
 import android.app.ProgressDialog;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;

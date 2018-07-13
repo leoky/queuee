@@ -63,16 +63,21 @@ public class LoginActivity extends AppCompatActivity {
         callUser.enqueue(new Callback<UserData>() {
             @Override
             public void onResponse(Call<UserData> call, Response<UserData> response) {
-//                UserData u = response.body();
                 UserData u = response.body();
-               if(u !=null){
-                   sp.createUserSession(u.getId(),u.getEmail(),u.getName(),u.getPassword(),u.getPhoto(),u.getDob(),u.getPhone(),u.getGender(),
-                           u.getClinic().getClinic_name(),u.getClinic().getLocation(),u.getClinic().getEstimate(),u.getClinic().getStatus());
-                   Intent i = new Intent(getApplication(),MainActivity.class);
-                   startActivity(i);
-                   loading.dismiss();
-                   finish();
-               }
+                boolean isSuccess= false;
+                if( u!=null) {
+                    if (u.getError() == null) {
+                        sp.createUserSession(u.get_id(), u.getEmail(), u.getName(), u.getPassword(), u.getPhoto(), u.getDob(), u.getPhone(), u.getGender(),
+                                u.getClinic().getClinic_name(), u.getClinic().getLocation(), u.getClinic().getEstimate(), u.getClinic().getStatus());
+                        Intent i = new Intent(getApplication(), MainActivity.class);
+                        startActivity(i);
+                        isSuccess= true;
+                    }
+                }
+                loading.dismiss();
+                if(isSuccess){
+                    finish();
+                }
             }
 
             @Override

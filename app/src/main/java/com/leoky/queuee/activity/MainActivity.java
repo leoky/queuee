@@ -1,7 +1,6 @@
 package com.leoky.queuee.activity;
 
 
-import android.app.ProgressDialog;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;

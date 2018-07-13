@@ -1,23 +1,16 @@
 package com.leoky.queuee.activity;
 
 import android.app.ProgressDialog;
-import android.arch.persistence.room.Update;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.leoky.queuee.R;
-import com.leoky.queuee.api.ApiService;
 import com.leoky.queuee.api.model.UserData;
-import com.leoky.queuee.api.service.UserService;
-import com.leoky.queuee.session.SessionManager;
 
 import retrofit2.Callback;
 import retrofit2.Response;
