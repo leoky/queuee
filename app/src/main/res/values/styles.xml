@@ -41,4 +41,14 @@
         <item name="android:paddingRight">@dimen/small_ver_padd</item>
         <item name="android:orientation">vertical</item>
     </style>
+
+    <style name="MyTheme_SettingTitle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/h3</item>
+    </style>
+
+    <style name="MyTheme_SettingSubTitle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#bebebe</item>
+    </style>
 </resources>

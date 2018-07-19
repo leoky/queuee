@@ -60,15 +60,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="15sp"
+                    style="@style/MyTheme_SettingTitle"
                     android:text="@string/tv_name"/>
                 <TextView
                     android:id="@+id/tvName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textColor="#bebebe"
+                    style="@style/MyTheme_SettingSubTitle"
                     android:text="Ricky"/>
             </LinearLayout>
             <LinearLayout

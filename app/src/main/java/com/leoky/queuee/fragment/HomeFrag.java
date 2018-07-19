@@ -84,7 +84,7 @@ public class HomeFrag extends Fragment {
     }
 
     private void updateData(){
-        String status = (sw.isChecked()? "Open" : "Close");
+        String status = (sw.isChecked()? "Open" : "Closed");
         Call<Home> d = MainActivity.userService.updateCStatus(MainActivity.sp.getSpId(),status);
         d.enqueue(new Callback<Home>() {
             @Override
