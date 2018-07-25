@@ -48,7 +48,7 @@ public class RVList extends RecyclerView.Adapter<RVList.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return queues.size()-1;
+        return queues.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{

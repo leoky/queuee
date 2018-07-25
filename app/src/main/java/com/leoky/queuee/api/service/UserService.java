@@ -54,6 +54,7 @@ public interface UserService {
 //                              @Field("result") String result);
 
 
-    @GET("queue/list/{doctor_id}")
+    @GET("queue/list/d/{doctor_id}")
     Call<RepoQueue> getQueueList(@Path("doctor_id")String id);
+
 }

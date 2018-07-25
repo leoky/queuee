@@ -2,6 +2,7 @@ package com.leoky.queuee.api.model;
 
 public class Patient {
     public String id, name;
+
     public Patient(String id, String name) {
         this.id = id;
         this.name = name;

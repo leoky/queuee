@@ -1,6 +1,5 @@
 package com.leoky.queuee.api.model;
 
-import java.util.Date;
 
 public class Queue {
     public String _id;
