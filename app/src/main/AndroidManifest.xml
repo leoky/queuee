@@ -30,7 +30,8 @@
             android:name=".activity.ChangeEmail"
             android:theme="@style/AppTheme" />
         <activity android:name=".activity.ChangePassword" />
-        <activity android:name=".activity.ChangePhone"></activity>
+        <activity android:name=".activity.ChangePhone" />
+        <activity android:name=".activity.CustomTimePopup"></activity>
     </application>
 
 </manifest>

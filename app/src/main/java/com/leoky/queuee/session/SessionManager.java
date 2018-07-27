@@ -157,7 +157,7 @@ public class SessionManager {
     }
 
     public void  saveSpTime(String time){
-        editor.putString(KEY_GENDER, time);
+        editor.putString(KEY_TIME, time);
         editor.commit();
     }
     public void clearSp(){

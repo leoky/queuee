@@ -8,6 +8,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.leoky.queuee.R;
 import com.leoky.queuee.api.model.UserData;
@@ -101,8 +102,7 @@ public class ChangeEmail extends AppCompatActivity {
 
             @Override
             public void onFailure(retrofit2.Call<UserData> call, Throwable t) {
-                System.out.println("erorr "+ t);
-//                loading.setMessage("Update Failed");
+                Toast.makeText(ChangeEmail.this,""+t,Toast.LENGTH_SHORT).show();
                 loading.dismiss();
             }
         });

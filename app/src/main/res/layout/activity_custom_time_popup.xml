@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="320dp"
+    android:layout_height="320dp"
+    android:padding="5dp"
+    android:layout_gravity="center"
+    android:background="@color/BlueDark"
+    android:orientation="vertical"
+    tools:context=".activity.CustomTimePopup">
+
+    <TextView
+        android:id="@+id/tutup"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:text="X"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_gravity="end"
+        android:background="@drawable/circle_bg"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Estimate Time"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:textAlignment="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        android:weightSum="5">
+
+        <EditText
+            android:id="@+id/waktu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:layout_weight="1"
+            android:layout_marginRight="20dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Minutes"
+            android:layout_weight="4"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/UpdateWaktu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:text="Update"
+        android:background="@color/Orange"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:clickable="true"
+        android:textColor="@android:color/white"/>
+
+    <EditText
+        android:id="@+id/error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Error !!!"
+        android:textAlignment="center"
+        android:background="#c0392b"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:visibility="invisible"
+        android:textColor="@android:color/white"/>
+    <EditText
+        android:id="@+id/success"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Success !!!"
+        android:textAlignment="center"
+        android:background="#27ae60"
+        android:visibility="invisible"
+        android:textColor="@android:color/white"/>
+
+</LinearLayout>

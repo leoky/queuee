@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        style="@style/Base.TextAppearance.AppCompat.Large"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
         android:layout_marginTop="@dimen/medium_ver_mar"
         android:layout_marginLeft="@dimen/small_hor_mar"
         android:text="@string/tv_welcome"/>
@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvWelcome"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        style="@style/TextAppearance.AppCompat.Medium"
+        style="@style/TextAppearance.AppCompat.Large"
         android:layout_marginTop="@dimen/vsmall_ver_mar"
         android:layout_marginLeft="@dimen/small_hor_mar"
         android:text="@string/tv_ex_name"/>
@@ -66,7 +66,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="@dimen/medium_ver_mar">
+        android:layout_marginLeft="@dimen/medium_ver_mar"
+        android:layout_marginRight="@dimen/medium_ver_mar"
+        android:layout_marginBottom="@dimen/large_ver_mar">
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -97,7 +99,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                style="@style/Base.TextAppearance.AppCompat.Large"
+                style="@style/Base.TextAppearance.AppCompat.Medium"
                 android:layout_marginTop="@dimen/small_ver_mar"
                 app:layout_constraintLeft_toRightOf="@+id/tvTotalQue"
                 app:layout_constraintTop_toBottomOf="@+id/tvStatus"
@@ -106,7 +108,7 @@
             <TextView
                 android:id="@+id/tvTotalQue"
                 android:layout_width="0dp"
-                style="@style/Base.TextAppearance.AppCompat.Large"
+                style="@style/Base.TextAppearance.AppCompat.Medium"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 app:layout_constraintTop_toTopOf="@+id/tvComplete"
@@ -118,7 +120,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:textSize="52sp"
+                android:textSize="32sp"
                 style="@style/Base.TextAppearance.AppCompat.Large"
                 android:layout_marginTop="@dimen/small_ver_mar"
                 android:layout_marginBottom="@dimen/small_ver_mar"
@@ -133,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 style="@style/Base.TextAppearance.AppCompat.Large"
-                android:textSize="52sp"
+                android:textSize="32sp"
                 app:layout_constraintTop_toTopOf="@+id/tvCompleteNum"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/tvComplete"

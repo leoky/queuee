@@ -112,7 +112,7 @@
     <string name="tv_ClinicInfo">Clinic Info</string>
     <string name="tv_ClinicName">Clinic Name</string>
     <string name="tv_address">Address</string>
-    <string name="tv_time">Estimate Time</string>
+    <string name="tv_time">Estimate Time (Minutes)</string>
     <string name="tv_phone">Phone</string>
     <string name="tv_confirm_password">Confirm Password</string>
     <string name="tv_current_password">Current Password</string>
