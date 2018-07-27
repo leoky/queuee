@@ -46,13 +46,13 @@ public interface UserService {
     @FormUrlEncoded
     @POST("doctor/done/{queue_id}")
     Call<RepoQueue> queueDone(@Path("queue_id") String id,
+                                 @Field("doctorId")String doctorId,
                                  @Field("result") String result);
-
-//    @FormUrlEncoded
-//    @POST("doctor/done/{queue_id}")
-//    Call<RepoQueue> queueCancel(@Path("queue_id") String id,
-//                              @Field("result") String result);
-
+    @FormUrlEncoded
+    @POST("doctor/done/{queue_id}")
+    Call<RepoQueue> queueCancel(@Path("queue_id") String id,
+                              @Field("doctorId")String doctorId,
+                              @Field("result") String result);
 
     @GET("queue/list/d/{doctor_id}")
     Call<RepoQueue> getQueueList(@Path("doctor_id")String id);

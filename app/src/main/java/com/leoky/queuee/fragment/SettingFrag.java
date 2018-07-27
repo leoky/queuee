@@ -29,6 +29,7 @@ import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
+import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
@@ -147,10 +148,10 @@ public class SettingFrag extends Fragment{
                 UpdateWaktu.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        retrofit2.Call<UserData> callUser = MainActivity.userService.updateCSTime(MainActivity.sp.getSpId(),waktu.getText().toString());
+                        Call<UserData> callUser = MainActivity.userService.updateCSTime(MainActivity.sp.getSpId(),waktu.getText().toString());
                         callUser.enqueue(new Callback<UserData>() {
                             @Override
-                            public void onResponse(retrofit2.Call<UserData> call, Response<UserData> response) {
+                            public void onResponse(Call<UserData> call, Response<UserData> response) {
                                 UserData u = response.body();
                                 if(u!=null){
                                     MainActivity.sp.saveSpTime(waktu.getText().toString());

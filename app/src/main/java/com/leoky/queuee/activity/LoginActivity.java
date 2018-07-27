@@ -43,22 +43,24 @@ public class LoginActivity extends AppCompatActivity {
         sp =  new SessionManager(this);
 
         if(sp.isLogin()){
-            Intent i = new Intent(this,MainActivity.class);
-            startActivity(i);
-            finish();
+//            Intent i = new Intent(this,MainActivity.class);
+//            startActivity(i);
+//            finish();
+            loading = ProgressDialog.show(LoginActivity.this, null, "Please wait", true, false);
+            requestLogin(sp.getSpEmail(),sp.getSpPassword());
         }
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loading = ProgressDialog.show(LoginActivity.this, null, "Please wait", true, false);
-                requestLogin();
+                requestLogin(tvEmail.getText().toString(),tvPassword.getText().toString());
             }
         });
 
     }
-    private void requestLogin(){
-        Call<UserData> callUser = userService.loginRequest(tvEmail.getText().toString(),tvPassword.getText().toString());
+    private void requestLogin(String email,String pass){
+        Call<UserData> callUser = userService.loginRequest(email,pass);
 
         callUser.enqueue(new Callback<UserData>() {
             @Override
