@@ -6,5 +6,106 @@
     android:orientation="vertical"
     tools:context=".fragment.HistoryFrag">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp"
+                android:text="Frequently Asked Questions"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                android:text="Apakah aplikasi queue gratis?"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Ya ! Aplikasi ini gratis dan anda tidak perlu membayar apapun kepada kami !"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                android:text="Bagaimana jika saya ingin membatalkan pesanan"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Tinggal buka menu list dan cancel saja pesanan yang ingin dibatalkan !"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                android:text="Bisakah saya mengganti email?"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Bisa ! Ganti saja di setting"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                android:text="Bisakah saya mengganti password?"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Bisa ! Menunya ada di settings ya"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                android:text="Bisakah saya mengganti Estimate Time"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Bisa ! Menunya ada di settings ya"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                android:text="Bisalah saya mengganti Full Name?"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="italic"
+                android:text="Tidak bisa! nama itu sudah tetap dan tidak bisa diganti , tidak mungkin kan orang ganti ganti nama?"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 </LinearLayout>
